@@ -37,7 +37,12 @@ public class InsertGreatestCommonDivisor {
     }
 
     public ListNode<Integer> solution() {
-        return new ListNode<>(0, null);
+
+        // initialize first 2 nodes to find GCD
+        ListNode<Integer> prev = head;
+        ListNode<Integer> curr = head.next();
+
+        return head;
     }
 
 }
