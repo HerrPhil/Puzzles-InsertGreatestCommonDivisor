@@ -42,6 +42,25 @@ public class InsertGreatestCommonDivisor {
         ListNode<Integer> prev = head;
         ListNode<Integer> curr = head.next();
 
+        while (curr != null) {
+
+            int prevValue = prev.value();
+            int currValue = curr.value();
+
+            int gcd = BigInteger
+                .valueOf((long) prevValue)
+                .gcd(BigInteger.valueOf(currValue))
+                .intValue();
+
+            ListNode<Integer> gcdNode = new ListNode<>(gcd, curr);
+            prev.setNext(gcdNode);
+
+            // move pointers forward
+            prev = curr;
+            curr = curr.next();
+
+        }
+
         return head;
     }
 
